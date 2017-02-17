@@ -80,3 +80,7 @@ Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("router:///test?hello_s
 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
 ```
+
+## License
+
+WTFPL
