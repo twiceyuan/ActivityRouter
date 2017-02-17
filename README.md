@@ -41,6 +41,39 @@ public class TestActivity extends AppCompatActivity {
 }
 ```
 
+配置入口 Activity 分发 intent
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    Router.dispatchUriIntent(this, getIntent());
+}
+
+@Override
+protected void onNewIntent(Intent intent) {
+    super.onNewIntent(intent);
+    Router.dispatchUriIntent(this, intent);
+}
+```
+
+入口 Activity 清单配置（scheme="router" 为自定义 scheme）：
+```xml
+<activity
+    android:name=".MainActivity"
+    android:exported="true"
+    android:label="主界面"
+    android:launchMode="singleTask">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <data
+            android:host="*"
+            android:scheme="router"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+    </intent-filter>
+</activity>
+```
+
 调用（内部或者外部）：
 ```java
 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("router:///test?hello_string=HelloWorld!"));
