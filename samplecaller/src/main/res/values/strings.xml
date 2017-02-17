@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SampleCaller</string>
+    <string name="call_home">唤醒主页</string>
+    <string name="call_test">打开测试页</string>
+    <string name="call_test_with_params">打开测试页并且传入参数</string>
+    <string name="call_deep">打开深层页面</string>
+</resources>
